@@ -1,0 +1,280 @@
+{
+	"data": [
+		{
+			"id": 1,
+			"DepartmentCode": "041 - Shapes-Operable Shapes",
+			"ProcessCode": "00 - Not Applicable",
+			"ShiftCode": "00 - Not Applicable",
+			"ModelCode": "T41 - VSD SCR ONLY -VSGD SCR ONLY",
+			"UnitsCode": "81 - 051 - Avail - 0.0UPMH",
+			"UnitsValue": 1,
+			"ProdDateCode": 0,
+			"SortSequenceNo": 0
+		},
+		{
+			"id": 2,
+			"DepartmentCode": "043 - Special Shapes",
+			"ProcessCode": "01 - Fabrication/Assembly",
+			"ShiftCode": "02 - 2nd Shift Scanning M-F",
+			"ModelCode": "T42 - VSGD SCR ONLY - 3-PNL SCR ONLY",
+			"UnitsCode": "82 - 052 - Avail - 0.0UPMH",
+			"UnitsValue": 2,
+			"ProdDateCode": 0,
+			"SortSequenceNo": 0
+		},
+		{
+			"id": 3,
+			"DepartmentCode": "044 - Wood/Fact Mull",
+			"ProcessCode": "02 - Cutting Lineals",
+			"ShiftCode": "03 - 3rd Shift Scanning M-F",
+			"ModelCode": "T51 - RMSH -SHO",
+			"UnitsCode": "83 - 053 - Avail - 0.0UPMH",
+			"UnitsValue": 3,
+			"ProdDateCode": 0,
+			"SortSequenceNo": 0
+		},
+		{
+			"id": 4,
+			"DepartmentCode": "046 - Mulls Only Dept",
+			"ProcessCode": "03 - Welding Frame/Sash",
+			"ShiftCode": "02 - 2nd Shift Scanning M-F",
+			"ModelCode": "T52 - RMSH -SHOTW",
+			"UnitsCode": "84 - 054 - Avail - 0.0UPMH",
+			"UnitsValue": 4,
+			"ProdDateCode": 0,
+			"SortSequenceNo": 0
+		},
+		{
+			"id": 5,
+			"DepartmentCode": "047 - Picture Window",
+			"ProcessCode": "04 - Sash Prep/Assembly",
+			"ShiftCode": "03 - 3rd Shift Scanning M-F",
+			"ModelCode": "53 - RMSH -SHOTR",
+			"UnitsCode": "85 - 055 - Avail - 0.0UPMH",
+			"UnitsValue": 5,
+			"ProdDateCode": 0,
+			"SortSequenceNo": 0
+		}		
+	],
+
+	"assignproductionsequence": [
+	 {
+		"BeginProductionDate": "16/02/2023",
+		"DepartmentCode": "041 - Shapes-Operable Shapes",
+		"ProcessCode": "00 - Not Applicable",
+		"LoadCode": "4"		
+	 },
+	 {
+		"BeginProductionDate": "12/03/2022",
+		"DepartmentCode": "043 - Special Shapes",
+		"ProcessCode": "01 - Fabrication/Assembly",
+		"LoadCode": "3"
+	 },
+	 {
+		"BeginProductionDate": "21/05/2020",
+		"DepartmentCode": "044 - Wood/Fact Mull",
+		"ProcessCode": "02 - Cutting Lineals",
+		"LoadCode": "1"
+	 },
+	 {
+		"BeginProductionDate": "25/09/2018",
+		"DepartmentCode": "046 - Mulls Only Dept",
+		"ProcessCode": "03 - Welding Frame/Sash",
+		"LoadCode": "1"
+		
+	 },
+	 {
+		"BeginProductionDate": "15/07/2021",
+		"DepartmentCode": "047 - Picture Window",
+		"ProcessCode": "04 - Sash Prep/Assembly",
+		"LoadCode": "2"
+	 }
+	]
+	,
+	
+
+	"data1": [
+		{
+			"LoadNumber": "01256",
+			"LoadDescription": "Appian Load",
+			"ProductionWeek": 4,
+			"ProductionDay": 3,
+			"ShipmentBlock":"S1",
+			"LoadRegionCode": "H3 - 09-32-34-91-92-93-98",			
+			"ProductionDateScheduled": "01/25/2021",
+			"ProductionDatePlanned": "01/25/2021",
+			"CompletionDateScheduled": "01/25/2021",
+			"CompletionDatePlanned": "01/26/2021",
+			"LoadDateScheduled":"01/26/2021",
+			"LoadDatePlanned":"01/27/2021",
+			"EarliestDispatchDate":"01/27/2021",
+			"EarliestDispatchTime":"0700",
+			"LoadDollarVal":"0.00",
+			"LoadTotPull":0,
+			"LoadTotProduct":0,
+			"LoadTotUnits":"0.00",
+			"LoadTotMake":0,
+			"LoadTotDrops":0
+			
+		},
+		{
+			"LoadNumber": "02674",
+			"LoadDescription": "Appian Load",
+			"ProductionWeek": 5,
+			"ProductionDay": 2,
+			"ShipmentBlock":"S2",
+			"LoadRegionCode": "M1 - 57-58-59-66-67-77-88",			
+			"ProductionDateScheduled": "02/25/2021",
+			"ProductionDatePlanned": "02/25/2021",
+			"CompletionDateScheduled": "02/25/2021",
+			"CompletionDatePlanned": "02/26/2021",
+			"LoadDateScheduled":"02/26/2021",
+			"LoadDatePlanned":"02/27/2021",
+			"EarliestDispatchDate":"02/27/2021",
+			"EarliestDispatchTime":"0800",
+			"LoadDollarVal":"0.00",
+			"LoadTotPull":1,
+			"LoadTotProduct":0,
+			"LoadTotUnits":"0.00",
+			"LoadTotMake":1,
+			"LoadTotDrops":1
+		},
+		{
+			"LoadNumber": "02770",
+			"LoadDescription": "Appian Load",
+			"ProductionWeek": 3,
+			"ProductionDay": 1,
+			"ShipmentBlock":"S3",
+			"LoadRegionCode": "NE - CT-NH-MA-ME-VT",			
+			"ProductionDateScheduled": "03/03/2021",
+			"ProductionDatePlanned": "03/03/2021",
+			"CompletionDateScheduled": "03/03/2021",
+			"CompletionDatePlanned": "03/04/2021",
+			"LoadDateScheduled":"03/03/2021",
+			"LoadDatePlanned":"03/03/2021",
+			"EarliestDispatchDate":"03/03/2021",
+			"EarliestDispatchTime":"0800",
+			"LoadDollarVal":"0.00",
+			"LoadTotPull":2,
+			"LoadTotProduct":0,
+			"LoadTotUnits":"0.00",
+			"LoadTotMake":2,
+			"LoadTotDrops":2
+		},
+		{
+			"LoadNumber": "00195",
+			"LoadDescription": "Appian Load",
+			"ProductionWeek": 4,
+			"ProductionDay": 2,
+			"ShipmentBlock":"S3",
+			"LoadRegionCode": "T4 - 31-42-48-60-62",			
+			"ProductionDateScheduled": "11/25/2021",
+			"ProductionDatePlanned": "11/25/2021",
+			"CompletionDateScheduled": "11/25/2021",
+			"CompletionDatePlanned": "11/26/2021",
+			"LoadDateScheduled":"11/26/2021",
+			"LoadDatePlanned":"11/27/2021",
+			"EarliestDispatchDate":"11/27/2021",
+			"EarliestDispatchTime":"0800",
+			"LoadDollarVal":"0.00",
+			"LoadTotPull":3,
+			"LoadTotProduct":3,
+			"LoadTotUnits":"0.00",
+			"LoadTotMake":3,
+			"LoadTotDrops":3
+		},
+		{
+			"LoadNumber": "02375",
+			"LoadDescription": "Appian Load",
+			"ProductionWeek": 1,
+			"ProductionDay": 1,
+			"ShipmentBlock":"S3",
+			"LoadRegionCode": "T2 - 68-69-85-86-59",			
+			"ProductionDateScheduled": "02/22/2021",
+			"ProductionDatePlanned": "02/22/2021",
+			"CompletionDateScheduled": "02/25/2021",
+			"CompletionDatePlanned": "02/22/2021",
+			"LoadDateScheduled":"02/25/2021",
+			"LoadDatePlanned":"02/25/2021",
+			"EarliestDispatchDate":"02/25/2021",
+			"EarliestDispatchTime":"0400",
+			"LoadDollarVal":"0.00",
+			"LoadTotPull":4,
+			"LoadTotProduct":4,
+			"LoadTotUnits":"0.00",
+			"LoadTotMake":4,
+			"LoadTotDrops":4
+		},
+		{
+			"LoadNumber": "02695",
+			"LoadDescription": "Appian Load",
+			"ProductionWeek": 8,
+			"ProductionDay": 4,
+			"ShipmentBlock":"S3",
+			"LoadRegionCode": "01 -NC-SC-VA-WV",			
+			"ProductionDateScheduled": "02/25/2021",
+			"ProductionDatePlanned": "02/25/2021",
+			"CompletionDateScheduled": "02/25/2021",
+			"CompletionDatePlanned": "02/26/2021",
+			"LoadDateScheduled":"02/26/2021",
+			"LoadDatePlanned":"02/27/2021",
+			"EarliestDispatchDate":"02/27/2021",
+			"EarliestDispatchTime":"0800",
+			"LoadDollarVal":"0.00",
+			"LoadTotPull":0,
+			"LoadTotProduct":0,
+			"LoadTotUnits":"0.00",
+			"LoadTotMake":0,
+			"LoadTotDrops":0
+		}
+	]
+	,
+	
+	"data2": [
+		{
+			"BeginRegionCode" :"01 - NC-SC-VA-WV",
+			"EndingRegionCode" :"02 - GA-AL-TN-KY-OH-IN-MD-DE",
+			"BeginRouteCode":"LM0842 . Wilmington, NC.",
+			"EndingRouteCode":"LO3478 . Leland, NC.",
+			"BeginZipCode":"0",
+			"EndingZipCode":"1",
+			"BeginSODueDate":"08/08/1990",
+			"EndingSODueDate":"26/05/2001",
+			"OrderNumber":1
+		},
+		{
+			"BeginRegionCode" :"01 - NC-SC-VA-WV",
+			"EndingRegionCode" :"02 - GA-AL-TN-KY-OH-IN-MD-DE",
+			"BeginRouteCode":"LM0842 . Wilmington, NC.",
+			"EndingRouteCode":"LO3478 . Leland, NC.",
+			"BeginZipCode":"0",
+			"EndingZipCode":"1",
+			"BeginSODueDate":"08/08/1990",
+			"EndingSODueDate":"26/05/2001",
+			"OrderNumber":2
+		},
+		{
+			"BeginRegionCode" :"01 - NC-SC-VA-WV",
+			"EndingRegionCode" :"02 - GA-AL-TN-KY-OH-IN-MD-DE",
+			"BeginRouteCode":"LM0842 . Wilmington, NC.",
+			"EndingRouteCode":"LO3478 . Leland, NC.",
+			"BeginZipCode":"0",
+			"EndingZipCode":"1",
+			"BeginSODueDate":"08/08/1990",
+			"EndingSODueDate":"26/05/2001",
+			"OrderNumber":3
+		},
+		{
+			"BeginRegionCode" :"01 - NC-SC-VA-WV",
+			"EndingRegionCode" :"02 - GA-AL-TN-KY-OH-IN-MD-DE",
+			"BeginRouteCode":"LM0842 . Wilmington, NC.",
+			"EndingRouteCode":"LO3478 . Leland, NC.",
+			"BeginZipCode":"0",
+			"EndingZipCode":"1",
+			"BeginSODueDate":"08/08/1990",
+			"EndingSODueDate":"26/05/2001",
+			"OrderNumber":4
+		}
+	]
+	
+}

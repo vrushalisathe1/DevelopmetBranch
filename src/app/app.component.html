@@ -1,0 +1,7 @@
+@if(!isIframe) {
+<router-outlet [ngClass]="'currentTheme' | translate"></router-outlet>
+}
+
+<ng-http-loader [backdrop]="true" [backgroundColor]="'#072d82'" [debounceDelay]="100" [extraDuration]="500" [minDuration]="300" [spinner]="spinkit.skWave">
+</ng-http-loader>
+<p-toast position="top-right"></p-toast>

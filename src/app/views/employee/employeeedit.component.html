@@ -1,0 +1,483 @@
+<div class="inner_padding edit_user_page">
+    <div class="inner_padding">
+        <div class="row mb-2">
+            <div class="col-lg-12">
+                <div class="back-link back-clickevent">
+                    <a class="cursor-pointer" [routerLink]="['/employee']">{{ 'lblBack' | translate }}</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <div class="card-header ml-0 pt-0 pb-3 header-remove px-0">
+                    <h4 class="content-title add-content-title pl-0">{{ 'lblEditFileUtility' | translate }}</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-12 float-left">
+                <div class="inner_padding px-0 h-100 pt-0">
+                    <div class="row h-100">
+                        <div class="col-lg-12">
+                            <div class="edit-profile-accordio addInternal h-100">
+                                <div class="panel-group h-100" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <form [formGroup]="rolodexForm" class="h-100">
+                                        <div class="card h-100">
+                                            <div class="card-header cardHeaderBoxShadow">
+                                                <div class="form-title pl-2">{{'lblEditFileUtilityInformation' | translate}}</div>
+                                            </div>
+                                            <div class="card-body userCardHeight">
+
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblEmployeeNumber' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input pInputText class="form-control" formControlName="EmployeeNumber" placeholder="{{'lblEmployeeNumber' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && rolodexForm.controls.EmployeeNumber.errors }" autocomplete="off" maxlength="32">
+                                                            @if(isSubmitted && rolodexForm.controls.EmployeeNumber.errors){
+                                                            <div class="mandatoryStar">
+                                                                {{'lblEmployeeNumberProvider'|translate}}
+                                                            </div>
+                                                            }
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblFirstName' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input pInputText class="form-control" formControlName="FirstName" placeholder="{{'lblFirstName' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && rolodexForm.controls.FirstName.errors }" autocomplete="off" maxlength="32">
+                                                            @if(isSubmitted && rolodexForm.controls.FirstName.errors){
+                                                            <div class="mandatoryStar">
+                                                                {{'lblFirstNameProvider'|translate}}
+                                                            </div>
+                                                            }                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblLastName' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input pInputText class="form-control" formControlName="LastName" placeholder="{{'lblLastName' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && rolodexForm.controls.LastName.errors }" autocomplete="off" maxlength="32">
+                                                            @if(isSubmitted && rolodexForm.controls.LastName.errors){
+                                                            <div class="mandatoryStar">
+                                                                {{'lblLastNameProvider'|translate}}
+                                                            </div>
+                                                            }                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblMiddleName' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input pInputText class="form-control" formControlName="MiddleName" placeholder="{{'lblMiddleName' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && rolodexForm.controls.MiddleName.errors }" autocomplete="off" maxlength="32">
+                                                            @if(isSubmitted && rolodexForm.controls.MiddleName.errors){
+                                                            <div class="mandatoryStar">
+                                                                {{'lblMiddleNameProvider'|translate}}
+                                                            </div>
+                                                            }                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblAddressLine(1)' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblAddressLine(1)' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblAddressLine(2)' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblAddressLine(2)' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblCityStateZip' | translate}}:<sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblCityStateZip' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblHomePhoneNumber' | translate}}:</label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <p-inputMask [style]="{ width: '100%'}" mask="999-999-9999" placeholder="000-000-0000"></p-inputMask>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0" for="officeNo">{{'lblEmergencyPhoneNo' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <p-inputMask [style]="{ width: '100%'}" mask="999-999-9999" placeholder="000-000-0000"></p-inputMask>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblFamilyStatus(M,S,D)' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input pInputText class="form-control" placeholder="{{'lblFamilyStatus(M,S,D)' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblCompyStat(A,I,T,C)' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input pInputText class="form-control" placeholder="{{'lblCompyStat(A,I,T,C)' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblHireDate' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input type="text" placeholder="mm/dd/yy" class="form-control formdate"
+                                                                   formControlName="HireDate" [ngClass]="{ 'is-invalid': isSubmitted && rolodexForm.controls.HireDate.errors }"
+                                                                   [minDate]="minStartDate" maxlength="10" [maxDate]="maxStartDate" ngbDatepicker
+                                                                   #_sd="ngbDatepicker" (dateSelect)="isArrowUp = false;"
+                                                                   (click)="_sd.toggle();isArrowUp = !isArrowUp">
+                                                            @if(isSubmitted && rolodexForm.controls.HireDate.errors){
+                                                            <div class="mandatoryStar">
+                                                                {{'lblHireDateProvider'|translate}}
+                                                            </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblFloatDaysEarned/DTE' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblFloatDaysEarned/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblVacDaysEarned/DTE' | translate}}:<sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblVacDaysEarned/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblSickDaysEarned/DTE' | translate}}:</label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblSickDaysEarned/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0" for="officeNo">{{'lblNewJobCode' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input pInputText class="form-control" formControlName="JobCode" placeholder="{{'lblNewJobCode' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && rolodexForm.controls.JobCode.errors }" autocomplete="off" maxlength="32">
+                                                            @if(isSubmitted && rolodexForm.controls.JobCode.errors){
+                                                            <div class="mandatoryStar">
+                                                                {{'lblJobCodeProvider'|translate}}
+                                                            </div>
+                                                            }                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblCurPayRate/DTE' | translate}}:<sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblCurPayRate/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblNextReviewDate' | translate}}:</label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblNextReviewDate' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0" for="officeNo">{{'lblPointsLate' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblPointsLate' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0" for="officeNo">{{'lblTempJobTitle' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblTempJobTitle' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0" for="officeNo">{{'lblMisc' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblMisc' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblDept' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <p-dropdown appendTo="body" [options]="departmentList" class="searchdropdown" [showClear]="true"
+                                                                        placeholder="{{'lblDepartment' | translate}}" optionLabel="name" optionValue="value" formControlName="DepartmentId">
+                                                                <ng-template let-fs pTemplate="item">
+                                                                    {{ fs.name | translate}}
+                                                                </ng-template>
+                                                                <ng-template let-rprtOption pTemplate="selectedUserType">
+                                                                    {{rprtOption.name | translate}}
+                                                                </ng-template>
+                                                            </p-dropdown>
+                                                            @if(isSubmitted && rolodexForm.controls.DepartmentId.errors){
+                                                            <div class="mandatoryStar">
+                                                                {{'lblDepartmentNameProvider'|translate}}
+                                                            </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-12 float-left">
+                <div class="inner_padding px-0 h-100 pt-0">
+                    <div class="row h-100">
+                        <div class="col-lg-12">
+                            <div class="edit-profile-accordio addInternal h-100">
+                                <div class="panel-group h-100" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="h-100">
+                                        <div class="card h-100">
+                                            <div class="card-body userCardHeight">
+                                                
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblCorpDeptNo' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblCorpDeptNo' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblBDate' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblBDate' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblSSNNo' | translate}}:<sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblSSNNo' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblContact' | translate}}:</label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblContact' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0" for="officeNo">{{'lblTerminationDate' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblTerminationDate' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblFloatDaysUsed/DTE' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input pInputText class="form-control" placeholder="{{'lblFloatDaysUsed/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblVacDaysUsed/DTE' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblVacDaysUsed/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblSickDaysUsed/DTE' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblSickDaysUsed/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblPrevPayRate/DTE' | translate}}:<sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblPrevPayRate/DTE' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblDateofLastPts' | translate}}:</label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblDateofLastPts' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-1">
+                                                    <div class="col-lg-12 d-flex align-items-center mb-2 flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0" for="officeNo">{{'lblDay' | translate}}: <sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblDay' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblTotal' | translate}}:<sup class="mandatoryStar"></sup></label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblTotal' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 mb-2 d-flex align-items-center flex-wrap">
+                                                        <div class="col-md-4 float-left px-0 bold-label">
+                                                            <label class="mb-0">{{'lblTermCode' | translate}}:</label>
+                                                        </div>
+                                                        <div class="col-md-8 float-left mt-1 px-0">
+                                                            <input class="form-control" pInputText placeholder="{{'lblTermCode' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-12 mb-2">
+                <div class="bottom_button">
+                    <p-button label="{{'lblCancel' | translate}}" styleClass="btn  btn-delete mr-2 ml-0 btn-cancel" (click)="resetRolodex();"></p-button>
+                    <p-button label="{{'lblSave' | translate}}" styleClass="btn externalUser_Edit_main_button button-font-size" (click)="rolodexUpdate();"></p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

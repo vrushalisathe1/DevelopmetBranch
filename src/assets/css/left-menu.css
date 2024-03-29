@@ -1,0 +1,309 @@
+
+/*Sidebar Start*/
+
+.left-menu {
+  position: relative;
+  width: 243px;
+  background: var(--cbbblue);
+  transition:0.6s all;
+}
+
+  .left-menu #wrapper {
+    margin-left: 0;
+    height: 200px;
+    padding: 0px;
+  }
+
+    .left-menu #wrapper ul {
+      padding: 0px;
+      list-style: none;
+    }
+
+
+
+      .left-menu #wrapper ul li:focus {
+        outline: 0;
+      }
+
+      .left-menu #wrapper ul li.inactive ul.inner-menu {
+        display: none;
+      }
+
+      .left-menu #wrapper ul li.active ul.inner-menu {
+        display: block;
+      }
+
+    .left-menu #wrapper li ul {
+      display: none;
+      margin: 0;
+    }
+
+.aligncenter-icon {
+  padding: 15px 11px !important;
+}
+
+.left-menu #wrapper ul li a {
+  display: block;
+  text-decoration: none;
+  color: var(--cbbtextgray);
+  padding: 15px 15px;
+  margin-left: 1px;
+  white-space: nowrap;
+}
+
+.left-menu #wrapper li:hover a svg,
+.left-menu #wrapper li.active a svg {
+  color: var(--cbbblue);
+}
+
+.left-menu #wrapper ul li a:hover {
+  background: var(--cbbbggray);
+}
+
+  .left-menu #wrapper ul li a:hover i,
+  .left-menu #wrapper ul li a:hover svg {
+    color: var(--cbbblue);
+  }
+
+.left-menu #wrapper li ul {
+  display: block;
+  position: relative;
+}
+
+  .left-menu #wrapper li ul.address {
+    min-width: 300px;
+  }
+
+.left-menu #wrapper li li {
+  float: left;
+  font-size: var(--font14);
+  width: 100%;
+  text-align: left;
+  cursor: default;
+  font-weight: var(--fontSemibold);
+  line-height: normal !important;
+  color: var(--cbbaccentblue);
+}
+
+.left-menu #wrapper li:hover a,
+.left-menu #wrapper li.active a {
+  background: var(--cbbwhite);
+}
+
+  .left-menu #wrapper li:hover a i,
+  .left-menu #wrapper li.active a i {
+    color: var(--cbbblack);
+  }
+
+.left-menu #wrapper li ul li a {
+  background: var(--cbbwhite);
+  /* border-bottom: 1px solid #ccc; */
+  display: block;
+  width: 100%;
+  /*font-size:  var(--font13); */
+  font-size: var(--font14);
+  position: relative;
+  cursor: pointer;
+}
+
+/* Added */
+.left-menu #wrapper li ul li span li a {
+  background: var(--cbbwhite);
+  border-bottom: none !important;
+  display: block;
+  width: 100%;
+  font-size: var(--font14);
+  position: relative;
+  cursor: pointer;
+  padding: 10px 25px;
+}
+
+.Brand-Legacy-Portals-Resources {
+  padding: 17px 0px 7px 20px;
+  border-bottom: solid 1px #bbb;
+}
+
+
+.left-menu #wrapper li:hover ul li:last-child li a {
+  /* border-bottom: none; */
+  border-bottom: solid 1px #bbb;
+}
+
+.left-menu #wrapper li:hover li a:hover {
+  background: var(--cbbbggray);
+}
+
+.left-menu #wrapper ul li ul ul {
+  position: relative !important;
+  left: 0;
+}
+
+.left-menu #wrapper ul li ul li ul li a {
+  background-color: #f3f3f3 !important;
+  padding: 15px 15px 15px 25px;
+}
+
+  .left-menu #wrapper ul li ul li ul li a:hover {
+    background-color: #c2c2c2 !important;
+    padding: 15px 15px 15px 25px;
+  }
+
+.menu-title {
+  color: #fff;
+  padding-left: 16px;
+  line-height: 13px;
+}
+
+
+.inner-menu {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 370px;
+}
+
+/*Sidebar End*/
+
+.left-menu .logo { background: #fff; padding:8px 18px; height: 50px; margin-bottom:10px; }
+.left-menu .logo a { display: flex; align-items: center; justify-content: flex-start; }
+.left-menu .logo img { width:100%; }
+
+/* left-menu-sidebar */
+#left-wrapper {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 70px);
+  overflow: hidden;
+  margin: auto;
+}
+
+label {
+    cursor: pointer;
+}
+label:focus {
+    outline: none;
+}
+
+
+.leftsidebar__wrap {
+    --space: .8em;
+    --line: 1em;
+    --spread: calc( var(--line) + var(--space) + var(--space) );
+}
+
+
+.menu__wrap {
+    --space: .8em;
+    --line: 1em;
+    --spread: calc( var(--line) + var(--space) + var(--space) );
+}
+
+.menu,
+.menu__wrap {
+  --width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--cbbblue);
+  width: var(--width);
+  height: 100%;
+  overflow: hidden;
+}
+.menu {
+    transform: translate3d( calc( var(--width) * 1 ), 0, 0);
+    transition: transform 0.35s;
+}
+.menu__head {
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  height: var(--spread);
+  background: #011c4f;
+}
+  .menu__head p {
+      margin:0px;
+      font-size:12px;
+  }
+.menu__toggle {
+  position: absolute;
+  left: 6px;
+  top:50%;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  line-height: 0px;
+  display: block;
+  padding: 0;
+  text-indent: -9999px;
+  background:url(/assets/img/icons/menu-back.svg) no-repeat;
+  background-size: 8px;
+  background-position: 8px center;
+  border-radius: 100%;
+  transform: translateY(-50%);
+}
+
+
+.submenu {
+    height:auto;
+    margin:0px;
+    padding:0px;
+}
+
+  .submenu li {
+    background: url(/assets/img/icons/menu-icon.svg) no-repeat left;
+    background-position: 4% 50%;
+    padding-left:30px;
+    padding-right:5px;
+    padding-top:5px;
+    padding-bottom:5px;
+    transition:0.6s all;
+  }
+
+  .submenu li:hover {
+    background: rgb(0,88,255) url(/assets/img/icons/menu-icon-hover.svg) no-repeat left;
+    background: linear-gradient(90deg, rgba(0,88,255,1) 62%, rgba(18,25,42,0) 100%) url(/assets/img/icons/menu-icon-hover.svg) no-repeat left;
+    background-position: 4% 50%;
+    transition:0.5s all;
+    cursor: pointer;
+  }
+
+    .submenu li label, .submenu li .link {
+      font-size: 13px !important;
+      font-weight: normal !important;
+      line-height: 15px;
+    }
+
+      .menu__wrap > .submenu {
+        padding-top: var(--spread);
+      }
+
+
+.link,
+.menu__trigger {
+  display: block;
+  padding: var(--space);
+  line-height: var(--line);
+  text-decoration: none;
+  color: #fff;
+  margin: 0px;
+}
+  .link:hover,
+  .menu__trigger:hover {
+    color: #fff;
+  }
+
+.menu__trigger {
+  background: url(/assets/img/icons/next-aerrow.png) no-repeat right;
+  background-size: 15px;
+  background-position: 95% 54%;
+}
+
+/* hide inputs */
+.menu__status {
+    display: none;
+}
+
+/* fade in checked menu */
+.menu__status:checked + .menu {
+    transform: translate3d(0, 0, 0);
+}

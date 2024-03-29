@@ -1,0 +1,135 @@
+<div class="h-100">
+    <div class="logo">
+        <a [routerLink]="['/dashboard']"> <img src="assets\img\logo.jpg" /></a>
+    </div>
+
+    <div id="left-wrapper">
+        <div class="leftsidebar__wrap">
+            <ul class="submenu">
+                <li>
+                    <a routerLinkActive="active" [routerLink]="['/customer']" class="link">Customer Management </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="['/site']" class="link">Site Management </a>
+                </li>
+                @for(levelOneItem of menuItems;track levelOneItem.data){
+                @if(!levelOneItem.children){
+                <li>
+                    <a routerLinkActive="active" routerLink="{{ levelOneItem.data }}" class="link">Customer Management</a>
+                </li>
+                }
+
+                @if(levelOneItem.children){
+                <li>
+                    <label class="menu__trigger" for="{{ levelOneItem.label }}">{{ levelOneItem.label }}</label>
+                    <input type="checkbox" id="{{ levelOneItem.label }}" name="{{ levelOneItem.label }}" class="menu__status">
+
+                    <div class="menu" style="overflow:auto;">
+                        <div class="menu__head position-relative">
+                            <label class="menu__toggle" for="{{ levelOneItem.label }}"><span>Toggle</span></label>
+                            <p class="menu-title">{{ levelOneItem.label }}</p>
+                        </div>
+
+                        @if(levelOneItem.children){
+                        <ul class="submenu">
+                            <!--Level 2 Menu Starts-->
+                            @for(levelTwoItem of levelOneItem.children;track levelTwoItem.data) {
+
+                            @if(!levelTwoItem.children){
+                            <li>
+                                <a routerLinkActive="active" routerLink="{{ levelTwoItem.data }}" class="link">{{ levelTwoItem.label }}</a>
+                            </li>
+                            }
+
+                            @if(levelTwoItem.children){
+                            <li>
+                                <label class="menu__trigger" for="{{ levelTwoItem.label }}">{{ levelTwoItem.label }}</label>
+                                <input type="checkbox" id="{{ levelTwoItem.label }}" name="{{ levelTwoItem.label }}" class="menu__status">
+
+                                <div class="menu">
+                                    <div class="menu__head">
+                                        <label class="menu__toggle" for="{{ levelTwoItem.label }}"><span>Toggle</span></label>
+                                        <p class="menu-title">{{ levelTwoItem.label }}</p>
+                                    </div>
+
+                                    @if(levelTwoItem.children){
+                                    <ul class="submenu">
+
+                                        @for(levelThreeItem of levelTwoItem.children;track levelThreeItem.data){
+                                        <!--Level 3 Menu Starts-->
+                                        @if(!levelThreeItem.children){
+                                        <li>
+                                            <a routerLinkActive="active" routerLink="{{ levelThreeItem.data }}" class="link">{{ levelThreeItem.label }}</a>
+                                        </li>
+                                        }
+
+                                        @if(levelThreeItem.children){
+                                        <li>
+                                            <label class="menu__trigger" for="{{ levelThreeItem.label }}">{{ levelThreeItem.label }}</label>
+                                            <input type="checkbox" id="{{ levelThreeItem.label }}" name="{{ levelThreeItem.label }}" class="menu__status">
+
+                                            <div class="menu">
+                                                <div class="menu__head">
+                                                    <label class="menu__toggle" for="{{ levelThreeItem.label }}"><span>Toggle</span></label>
+                                                    <p class="menu-title">{{ levelThreeItem.label }}</p>
+                                                </div>
+                                                @if(levelThreeItem.children){
+                                                <ul class="submenu">
+
+                                                    @for(levelFourItem of levelThreeItem.children;track levelFourItem.data) {
+                                                    <!--Level 4 Menu Starts-->
+                                                    @if(!levelFourItem.children){
+                                                    <li>
+                                                        <a routerLinkActive="active" routerLink="{{ levelFourItem.data }}" class="link">{{ levelFourItem.label }}</a>
+                                                    </li>
+                                                    }
+
+                                                    @if(levelFourItem.children){
+                                                    <li>
+                                                        <label class="menu__trigger" for="{{ levelFourItem.label }}">{{ levelFourItem.label }}</label>
+                                                        <input type="checkbox" id="{{ levelFourItem.label }}" name="{{ levelFourItem.label }}" class="menu__status">
+
+                                                        <div class="menu">
+                                                            <div class="menu__head">
+                                                                <label class="menu__toggle" for="{{ levelFourItem.label }}"><span>Toggle</span></label>
+                                                                <p class="menu-title">{{ levelFourItem.label }}</p>
+                                                            </div>
+                                                            @if(levelFourItem.children){
+                                                            <ul class="submenu">
+                                                                @for(levelFourItem of levelFourItem.children;track levelFourItem.data) {
+                                                                <li>
+                                                                    <a routerLinkActive="active" routerLink="{{ levelFourItem.data }}" class="link">{{ levelFourItem.label }}</a>
+                                                                </li>
+                                                                }                                                                
+                                                            </ul>
+                                                            }
+                                                        </div>
+                                                    </li>
+                                                    }
+                                                    <!--Level 4 Menu Ends-->
+                                                    }
+
+                                                </ul>
+                                                }
+                                            </div>
+                                        </li>
+                                        }
+                                        <!--Level 3 Menu Ends-->
+                                        }
+                                    </ul>
+                                    }
+                                </div>
+                            </li>
+                            }
+                            }
+                            <!--Level 2 Menu Ends-->
+                        </ul>
+                        }
+                    </div>
+                </li>
+                }
+                }
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<p-toast></p-toast>
+<div class="edit_role_page">
+    <div class="custom-form">
+        <div class="Internaltitle card-header d-flex justify-content-between align-items-center">
+            <h2>{{ 'lblRoleEdit' | translate }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            <form [formGroup]="roleForm">
+            <div class="card">
+
+                <div class="card_body">
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="col-md-4 float-left px-0 bold-label">
+                                <label class="mb-0">{{'lblTitle' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                            </div>
+                            <div class="col-md-8 float-left px-0">
+                                <input pInputText class="form-control" formControlName="name" placeholder="{{'lblTitle' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && roleForm.controls.name.errors }" autocomplete="off" maxlength="32">
+                                @if(isSubmitted && roleForm.controls.name.errors){
+                                <div class="mandatoryStar">
+                                    {{'lblProgramNameProvider'|translate}}
+                                </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="col-md-4 float-left px-0 bold-label">
+                                <label class="mb-0">{{ 'lblIsActive' | translate }}: <sup class="mandatoryStar"></sup></label>
+                            </div>
+                            <div class="col-md-8 float-left px-0">
+                                <p-checkbox [binary]="true" inputId="binary" formControlName="isActive"></p-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-12">  
+            <div class="card">
+                <div class="card_heading">{{'lblCustomMenu' | translate}}</div>
+                <div class="card_body">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="inner_box">
+                                <h4 class="inner_box_title">{{"lblSourceMenu"|translate}}</h4>
+                                <div class="inner_box_content all_source_menu">
+                                    <p-tree [value]="files1" [filter]="true" scrollHeight="300px" draggableNodes="true" droppableNodes="true" droppableScope="files" draggableScope="server2"></p-tree>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <div class="inner_box">
+                                <h4 class="inner_box_title">
+                                    {{"lblTargetMenu"|translate}}
+                                    <p-button label="{{'lblAddMenu' | translate}}" styleClass="btn text_btn" (click)="displayRoleMenuPopup = true;"></p-button>
+                                </h4>
+                                <div class="inner_box_content target_menu_box">
+                                    <p-tree [value]="files2" scrollHeight="300px" draggableNodes="true" droppableNodes="true" [draggableScope]='["server2", "files"]' draggableScope="files"
+                                            [propagateSelectionUp]="false" [propagateSelectionDown]="false" selectionMode="single" [(selection)]="selectedFile">
+                                        <ng-template let-node pTemplate="default">
+                                            {{ node.label }}
+                                            <span class="p-treenode-icon pi pi-pencil role_edit_icons" (click)="EditNode(node);"></span>
+                                            <span class="p-treenode-icon pi pi-times role_edit_icons" (click)="DeleteNode(node);"></span>
+                                        </ng-template>
+                                    </p-tree>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 mb-2">
+            <div class="bottom_button">
+                <p-button label="{{'lblSave' | translate}}" styleClass="btn btn-primary" (click)="roleUpdate()"></p-button>
+                <p-button label="{{'lblCancel' | translate}}" styleClass="btn btn-outline mr-2 ml-0" [routerLink]="['/role']"></p-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog id="ExternalUserAddModel" [(visible)]="displayRoleMenuPopup" [closable]="false" [modal]="true">
+    <div class="modal-content">
+        <div class="card mb-0 border-radius-0-custom" role="document">
+            <div class="model_padding">
+                <div class="modal-body popup_form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="modal-title mt-0">{{ "lblAddMenuInformation" | translate }}</h4>
+                        </div>
+                        <div class="popup_form_area">
+                            <div class="col-md-12">
+                                <div class="form_input">
+                                    <label class="mb-0">{{'lblTitle' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                    <input pInputText class="form-control" #Title placeholder="{{'lblTitle' | translate}}" [ngClass]="{ 'is-invalid': isSubmittedRole && !Title.value.trim() }" autocomplete="off" maxlength="32">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="popup_form_submission">
+                                    <p-button styleClass="btn btn-primary" label="{{ 'lblAdd' | translate }}" (click)="addTreeNode(Title.value.trim());"></p-button>
+                                    <p-button styleClass="btn btn-outline" label="{{ 'lblCancel' | translate }}" (click)="cancelMenuPopup();"></p-button>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-dialog>

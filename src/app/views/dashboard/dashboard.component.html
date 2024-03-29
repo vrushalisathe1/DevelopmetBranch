@@ -1,0 +1,50 @@
+<div class="inner_padding">
+  <div class="row">
+    <div class="col-lg-4">
+      <p-card header="Scheduled Jobs" [style]="{'width': '100%', 'margin-bottom': '2em','background-color':'#FFA726','color':'#ffffff'}">
+        <p style="font-size:40px;color:white;font-weight:bold;">
+          35
+        </p>
+      </p-card>
+    </div>
+    <div class="col-lg-4">
+      <p-card header="Out of Service Machines" [style]="{'width': '100%', 'margin-bottom': '2em','background-color':'#66BB6A','color':'#ffffff'}">
+        <p style="font-size:40px;color:white;font-weight:bold;">
+          8
+        </p>
+      </p-card>
+    </div>
+    <div class="col-lg-4">
+      <p-card header="Equipment Efficiency" [style]="{'width': '100%', 'margin-bottom': '2em','background-color':'#42A5F5','color':'#ffffff'}">
+        <p style="font-size:40px;color:white;font-weight:bold;">
+          70%
+        </p>
+      </p-card>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <p-chart type="bar" [data]="stackedData" [options]="stackedOptions"></p-chart>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <p-chart type="line" [data]="lineStylesData" [options]="basicOptions"></p-chart>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <p-chart type="bar" [data]="comboData" [options]="chartOptions"></p-chart>
+      </div>
+    </div>
+    <!--<div class="col-lg-6">
+      <div class="card">
+        <p-chart type="pie" [data]="data" [options]="chartOptions"></p-chart>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <p-chart type="doughnut" [data]="doughnutData" [options]="chartOptions"></p-chart>
+      </div>
+    </div>-->
+  </div>
+</div>

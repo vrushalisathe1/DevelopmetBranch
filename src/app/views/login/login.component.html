@@ -1,0 +1,107 @@
+
+<body class="login_page_body">
+    <div class="login_page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12 p-0 m-0 login_left_section">
+                    <div class="login_page_banner">
+                        <img src="../../../assets/img/login_image.jpg">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 login_right_section">
+                    <div class="login_frm_area">
+                        <div class="login_logo">
+                            <img src="../../../assets/img/header_logo.png">
+                        </div>
+                        <div class="login_head">
+                            <h2>Welcome to CPesa</h2>
+                            <p>Please login to your CPesa account using your credentials</p>
+                        </div>
+                        <div class="row" *ngIf="isCustomLogin">
+                            <div class="col-xl-12 d-flex align-items-center justify-content-center select_portal_login">
+                                <button type="button" class="btn btn-primary" (click)="ssoLogin()">
+                                    SSO LOGIN
+                                </button>
+                            </div>
+                            <div class="col-xl-12 d-flex align-items-center justify-content-center select_portal_login">
+                                <button type="button" class="btn btn-primary" (click)="isCustomLogin = false;">
+                                    CUSTOM LOGIN
+                                </button>
+                            </div>
+                        </div>
+                        <form [formGroup]="userForm">
+                            <div class="login_frm_box">
+                                <div class="form_input">
+                                    <label for="username">Username</label>
+                                    <input pInputText formControlName="UserName" class="form-control" placeholder="User Name" (keypress)="onKeyPress($event)" [ngClass]="{ 'is-invalid': isSubmitted && userForm.controls.UserName.errors }" autocomplete="off" maxlength="200">
+                                </div>
+                                
+                                <div class="form_input">
+                                    <label for="username">Password</label>
+                                    <input type="password" pInputText class="form-control" formControlName="Password" placeholder="Password"  (keypress)="onKeyPress($event)" [ngClass]="{ 'is-invalid': isSubmitted && userForm.controls.Password.errors }" autocomplete="off" maxlength="32">
+                                    <div class="forgot_password">
+                                        <a href="#" (click)="showDialog(); $event.preventDefault()">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <div class="form_input">
+                                    <p-button label="{{'Login' | translate}}" styleClass="btn btn-primary" (click)="customLogin()"  (keyup.enter)="customLogin()"></p-button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="login_copywrite">
+                            <p>CPesa Management Systems | 2024 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<p-dialog id="ExternalUserAddModel" [(visible)]="visible" [closable]="false" [modal]="true">
+    <form [formGroup]="forgotpasswordform" class="custom-formgroup">
+        <div class="modal-content">
+            <div class="model_padding">
+                <div class="modal-body popup_form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="modal-title mt-0">{{ 'lblForgotPassword' | translate }}</h4>
+                        </div>
+                        <div class="popup_form_area">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form_input">
+                                        <label class="mb-0">{{'lblUserName' | translate}}:<sup class="mandatoryStar">*</sup></label>
+                                        <input type="text" pInputText class="form-control" formControlName="UserName" placeholder="{{'lblUserName' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && forgotpasswordform.controls.UserName.errors }" autocomplete="off" maxlength="32">
+                                        @if(isSubmitted && forgotpasswordform.controls.UserName.errors){
+                                        <div class="mandatoryStar">
+                                            {{'lblUserNameProvider'|translate}}
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div><br></div>
+                                <div class="col-md-12">
+                                    <div class="form_input">
+                                        <label class="mb-0">{{'lblEmail' | translate}}:<sup class="mandatoryStar">*</sup></label>
+                                        <input type="text" pInputText class="form-control" formControlName="Email" placeholder="{{'lblEmail' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && forgotpasswordform.controls.Email.errors }" autocomplete="off" maxlength="100">
+                                        @if(isSubmitted && forgotpasswordform.controls.Email.errors){
+                                            <div class="mandatoryStar">
+                                                {{'lblUserEmailProvider'|translate}}
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="popup_form_submission">
+                                    <button type="button" class="btn btn-primary" (click)="onforgotpassword()">Forgot Password</button>
+                                    <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</p-dialog>

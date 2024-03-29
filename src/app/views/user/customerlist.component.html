@@ -1,0 +1,262 @@
+<div class="right-content">
+  <div class="custom-form">
+      <div class="Internaltitle card-header d-flex justify-content-between align-items-center">
+          <h2>{{ 'lblUserScreen' | translate }}</h2>
+          <div class="page_top_filter">
+              <!-- <div class="head_filter">
+                  <p-dropdown appendTo="body" class="searchdropdown" placeholder="{{'lblPlantName' | translate}}"
+                              [options]="plantList" [(ngModel)]="plantID" (onChange)="changeplant();" [showClear]="true"
+                              optionLabel="name" optionValue="value">
+                      <ng-template let-fs pTemplate="item">
+                          {{ fs.name | translate}}
+                      </ng-template>
+                      <ng-template let-rprtOption pTemplate="selectedUserType">
+                          {{rprtOption.name | translate}}
+                      </ng-template>
+                  </p-dropdown>              
+              </div> -->
+              <p-button styleClass="btn btn-primary btn-externalListPrimary " icon="pi pi-plus" [rounded]="true" [routerLink]="['/customer/add']" label="{{'lblAdd' | translate}} {{ 'lblUser' | translate }}">
+              </p-button>
+          </div>
+      </div>
+
+    <div class="user-mangt edit_table mb-0 inner_padding_tab">
+      <div class="bg_body custom-form-heading">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-12 d-flex align-items-center">
+            <div class=" d-flex justify-content-between w-100 flex-wrap">
+              <div class="row ">
+                <div class="d-inline-block position-relative col-xxl-6 col-xl-6 col-sm-6 mb-md-0 search-filter">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input id="txtSearch" pInputText placeholder="{{ 'lblFindUserNumber' | translate }}" [(ngModel)]="FindUserNumber" autocomplete="off" maxlength="40" class="search" (input)="onSearchUserNumber()" />
+                  </span>
+
+                </div>
+                <div class="d-inline-block position-relative col-xxl-6 col-xl-6 col-sm-6 search-filter pr-0">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input id="txtSearch" pInputText placeholder="{{'lblFindEmail' | translate}}" [(ngModel)]="FindEmail" autocomplete="off" maxlength="40" class="search" (input)="onSearchFindEmail()">
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-12">
+          <div class="table-responsive table-layout-fix">
+            <p-table #dt [value]="User?.userlist" styleClass="p-datatable-gridlines p-datatable-striped"
+                     paginatorDropdownAppendTo="body" [alwaysShowPaginator]="true" [totalRecords]="User?.totalCount" [paginator]="true"
+                     [showCurrentPageReport]="true" [rows]="25" [(first)]="first" [showDropdownPageReport]="true"
+                     [rowsPerPageOptions]="[10, 25, 50, 100]" perPage="{{'lblUserPerPage' | translate}}"
+                     currentPageReportTemplate="{{'lblShowingUser' | translate}}" [lazy]="true" (onLazyLoad)="loadDetails($event)">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th [pSortableColumn]="'USER_NUM'">
+                    {{ "lblNumber" | translate }}
+                    <p-sortIcon [field]="'USER_NUM'"></p-sortIcon>
+                  </th>
+                  <!-- <th [pSortableColumn]="'FIRST_NAME'">
+                    {{ "lblFirstName" | translate }}
+                    <p-sortIcon [field]="'FIRST_NAME'"></p-sortIcon>
+                  </th>
+                  <th [pSortableColumn]="'LAST_NAME'">
+                    {{ "lblLastName" | translate }}
+                    <p-sortIcon [field]="'LAST_NAME'"></p-sortIcon>
+                  </th> -->
+
+                  <th [pSortableColumn]="'USERID'">
+                    {{ "lblUserName" | translate }}
+                    <p-sortIcon [field]="'USERID'"></p-sortIcon>
+                  </th>
+
+                  <th width="25%" [pSortableColumn]="'EMAIL'">
+                    {{ "lblEmail" | translate }}
+                    <p-sortIcon [field]="'EMAIL'"></p-sortIcon>
+                  </th>
+                  <!-- <th [pSortableColumn]="'EMAILNOTIFICATION'">
+                    {{ "lblNotification" | translate }}
+                    <p-sortIcon [field]="'EMAILNOTIFICATION'"></p-sortIcon>
+                  </th> -->
+                  <th [pSortableColumn]="'PHONE'">
+                    {{ "lblPhone" | translate }}
+                    <p-sortIcon [field]="'PHONE'"></p-sortIcon>
+                  </th>
+                  <th>
+                    {{ "lblRole" | translate }}
+                  </th>
+                  <!-- <th>
+                    {{ "lblPermission" | translate }}
+                  </th> -->
+                  <th class="action-cell">{{ "lblAction" | translate }}</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-user>
+                <tr>
+                  <td>{{ user.UserNum }}</td>
+                  <!-- <td>{{ user.FirstName }}</td>
+                  <td>{{ user.LastName }}</td> -->
+                  <td>{{ user.UserName }}</td>
+                  <td width="25%">{{ user.Email }}</td>
+                  <!-- <td class="notification-number"><span>{{ user.EmailNotification }}</span></td> -->
+                  <td class="phone-number-td">{{ user.Phone }}</td>
+                  <!-- <td> {{ user.RoleName }}</td> -->
+                  <td class="text-center">
+                    <i class="pi pi-lock" (click)="getRoleById(user.RoleID);"></i>
+                  </td>
+                  <td class="action external-list-action action-cell d-flex">
+                    <div class="action_image">
+                      <p-button styleClass="btn " [routerLink]="['/user/edit',user.UserNum]">
+                        <i class="pi pi-pencil"></i>
+                      </p-button>
+                    </div>
+                    <div class="action_image">
+                      <p-button styleClass="btn " (click)="showUserPopup(user.UserNum);">
+                        <i class="pi pi-trash"></i>
+                      </p-button>
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="10" class="noDatatext">
+                    {{ "lblNodata" | translate }}
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog id="ExternalUserAddModel" [(visible)]="displayuserPopup" [closable]="false" [modal]="true">
+  <div class="modal-content">
+      <div class="card mb-0 border-radius-0-custom" role="document">
+          <div class="model_padding">
+              <div class="modal-body">
+                  <div class="row mx-0">
+                      <div class="col-12">
+                          <div class="popup_icon popup_icon_delete">
+                              <img src="../../../assets/img/icons/delete_icon.svg" alt="test">
+                          </div>
+                          <h4 class="modal-title mt-0">{{ "lblTitleUser" | translate }}</h4>
+                          <p>{{ "lblAreyousureyouwanttodelete" | translate }}</p>
+                          <p-button styleClass="btn btn-delete m-2" label="{{ 'Delete' | translate }}" (click)="deleteUser();"></p-button>
+                          <p-button styleClass="btn btn-outline m-2" label="{{ 'lblCancel' | translate }}" (click)="displayuserPopup = false"></p-button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</p-dialog>
+
+
+  <p-dialog id="ExternalUserAddModel" [(visible)]="displayPermissionPopup" [closable]="false" [modal]="true" [style]="{ width: '50vw' }">
+    <div class="modal-content">
+      <div class="card mb-0 border-radius-0-custom" role="document">
+        <div class="model_padding">
+          <div class="modal-body">
+            <div class="row mx-0">
+              <div class="col-xl-11 col-md-10 col-12 float-left pl-md-3 px-0 mb-4">
+                @for(obj of menuItems;track obj.label) {
+                @if(obj.children?.length > 0) {
+                <p-accordion>
+                  <p-accordionTab [selected]="true">
+                    <ng-template pTemplate="header"> {{ obj.label }} </ng-template>
+                    <div class="panel-collapse collapse show">
+                      <div class="panel-body pt-3">
+                        <div class="row">
+                          @for(itemf of obj.children;track itemf.label) {
+
+                          @if(itemf.children?.length > 0){
+                          <p-accordion>
+                            <p-accordionTab [selected]="true">
+                              <ng-template pTemplate="header"> {{ itemf.label }} </ng-template>
+                              <div class="panel-collapse collapse show">
+                                <div class="panel-body pt-3">
+                                  <div class="row">
+                                    @for(itemt of itemf.children;track itemt.label) {
+                                    @if(itemt.children?.length > 0){
+                                    <p-accordion>
+                                      <p-accordionTab [selected]="true">
+                                        <ng-template pTemplate="header"> {{ itemt.label }} </ng-template>
+                                        <div class="panel-collapse collapse show">
+                                          <div class="panel-body pt-3">
+                                            <div class="row">
+                                              @for(itemt of itemt.children;track itemt.label) {
+                                              <div class="col-lg-4 mb-2 pl-md-0 flex-wrap">
+                                                <div class="col-xl-3 col-lg-4 col-12  float-left contactInfoFieldAlign">
+                                                  <p-checkbox [binary]="true" inputId="binary" [(ngModel)]="chkRole" [disabled]="chkRole"></p-checkbox>
+                                                </div>
+                                                <div class="col-xl-9 col-lg-8 col-12 float-left alignItemsOfContactInfo">
+                                                  <label class="mb-0 regionlabel"> {{ itemt.label }}  </label>
+                                                </div>
+                                              </div>
+                                              }
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </p-accordionTab>
+                                    </p-accordion>
+                                    } @else {
+                                    <div class="col-lg-4 mb-2 pl-md-0 flex-wrap">
+                                      <div class="col-xl-3 col-lg-4 col-12  float-left contactInfoFieldAlign">
+                                        <p-checkbox [binary]="true" inputId="binary" [(ngModel)]="chkRole" [disabled]="chkRole"></p-checkbox>
+                                      </div>
+                                      <div class="col-xl-9 col-lg-8 col-12 float-left alignItemsOfContactInfo">
+                                        <label class="mb-0 regionlabel"> {{ itemt.label }}  </label>
+                                      </div>
+                                    </div>
+                                    }
+
+                                    }
+
+                                  </div>
+                                </div>
+                              </div>
+                            </p-accordionTab>
+                          </p-accordion>
+                          } @else {
+                          <div class="col-lg-4 mb-2 pl-md-0 flex-wrap">
+                            <div class="col-xl-3 col-lg-4 col-12  float-left contactInfoFieldAlign">
+                              <p-checkbox [binary]="true" inputId="binary" [(ngModel)]="chkRole" [disabled]="chkRole"></p-checkbox>
+                            </div>
+                            <div class="col-xl-9 col-lg-8 col-12 float-left alignItemsOfContactInfo">
+                              <label class="mb-0 regionlabel"> {{ itemf.label }}  </label>
+                            </div>
+                          </div>
+                          }
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  </p-accordionTab>
+                </p-accordion>
+                } @else {
+                <div class="col-lg-4 mb-2 pl-md-0 flex-wrap">
+                  <div class="col-xl-3 col-lg-4 col-12  float-left contactInfoFieldAlign">
+                    <p-checkbox [binary]="true" inputId="binary" [(ngModel)]="chkRole" [disabled]="chkRole"></p-checkbox>
+                  </div>
+                  <div class="col-xl-9 col-lg-8 col-12 float-left alignItemsOfContactInfo">
+                    <label class="mb-0 regionlabel"> {{ obj.label }}  </label>
+                  </div>
+                </div>
+                }
+                }
+              </div>
+              <p-button styleClass="btn btn-primary" label="{{ 'lblCancel' | translate }}" (click)="displayPermissionPopup = false"></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-dialog>

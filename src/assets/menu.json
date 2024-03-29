@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "label": "User Management",
+      "data": "/user",
+      "icon": "pi pi-file"
+    },
+    {
+      "label": "Role Management",
+      "data": "/role",
+      "icon": "pi pi-file"
+    },
+    {
+      "label": "Gencode Management",
+      "data": "/gencode",
+      "icon": "pi pi-file"
+    },    
+    {
+      "label": "Planning Master Department",
+      "data": "/plan/departmentdefinition",
+      "icon": "pi pi-file"
+    },
+    {
+      "label": "Planning Master Unit Capacity",
+      "data": "/plan/productioncapacity",
+      "icon": "pi pi-file"
+    },
+    {
+      "label": "Load Definition/Analysis Utility",
+      "data": "/plan/loaddefinition",
+      "icon": "pi pi-file"
+    },
+    {
+      "label": "Scheduling Load Analysis Utility",
+      "data": "/plan/productionloads",
+      "icon": "pi pi-file"
+    },
+    {
+      "label": "Planning Assign Sequence Numbers",
+      "data": "/plan/assignproductionsequence",
+      "icon": "pi pi-file"
+    }
+  ]
+}

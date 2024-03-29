@@ -1,0 +1,89 @@
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed" [ngClass]="'currentTheme' | translate"
+    [class.toggled]="classToggled">
+    <div class="wrapper d-flex">
+        <div class="left-menu">
+            <app-leftmenu></app-leftmenu>
+            <div class="top_collepsible_menu" id="sidebarToggle" (click)="toggleField()">
+                <img src="../../../assets/img/icons/collapse_icon.svg" alt="">
+            </div>
+        </div>
+        <div id="MainDiv" class="col">
+            <div class="top_header">
+                <div class="top_heading">
+                    <span class="atrium_logo"><img src="../../../assets/img/atrium-logo.webp" alt=""></span>
+                    <!-- <p [class.toggled]="classToggled">Cpesa Management System - Attrium Windows and Doors</p> -->
+                    <p>Cpesa Management System</p>
+                </div>
+
+                <div class="top_nav">
+                    <p-splitButton label="Hi, {{this.UserName}}" icon="pi pi-user" [model]="this.items" styleClass="p-button-success"></p-splitButton>
+                </div>
+            </div>
+
+            <p-dialog id="ExternalUserAddModel" [(visible)]="displayreset" [closable]="false" [modal]="true">
+                <form [formGroup]="Resetform" class="custom-formgroup">
+                    <div class="modal-content">
+                        <div class="card mb-0 border-radius-0-custom" role="document">
+                            <div class="model_padding">
+                                <div class="modal-body popup_form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4 class="modal-title mt-0">{{ 'lblresetpassword' | translate }}</h4>
+                                        </div>
+                                        <div class="popup_form_area">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form_input">
+                                                        <label class="mb-0">{{'lbloldpassword' | translate}}:<sup class="mandatoryStar">*</sup></label>
+                                                        <input type="password" pInputText class="form-control" formControlName="password" placeholder="{{'lbloldpassword' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && Resetform.controls.password.errors }" autocomplete="off" maxlength="32">
+                                                        @if(isSubmitted && Resetform.controls.password.errors){
+                                                        <div class="mandatoryStar">
+                                                            {{'lbloldpassworddataprovider'|translate}}
+                                                        </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form_input">
+                                                        <label class="mb-0">{{'lblnewpassword' | translate}}:<sup class="mandatoryStar">*</sup></label>
+                                                        <input type="password" pInputText class="form-control" formControlName="newpassword" placeholder="{{'lblnewpassword' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && Resetform.controls.newpassword.errors }" autocomplete="off" maxlength="32">
+                                                        @if(isSubmitted && Resetform.controls.newpassword.errors){
+                                                        <div class="mandatoryStar">
+                                                            {{'lblnewpassworddataprovider'|translate}}
+                                                        </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form_input">
+                                                        <label class="mb-0">{{'lblConfirmpassword' | translate}}: <sup class="mandatoryStar">*</sup></label>
+                                                        <input type="password" formControlName="confirmPassword" pInputText class="form-control" placeholder="{{'lblConfirmpassword' | translate}}" [ngClass]="{ 'is-invalid': isSubmitted && Resetform.controls.confirmPassword.errors }" autocomplete="off" maxlength="32">
+                                                        @if(isSubmitted && Resetform.controls.confirmPassword.errors){
+                                                        <div class="mandatoryStar">
+                                                            {{'lblconfirmpassworddataprovider'|translate}}
+                                                        </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="popup_form_submission">
+                                                    <p-button styleClass="btn btn-primary" label="{{ 'lblresetnow' | translate }}" (click)="resetDialog();"></p-button>
+                                                    <p-button styleClass="btn btn-outline" label="{{ 'lblCancel' | translate }}" (click)="closeDialog()"></p-button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </p-dialog>
+            <section class="content main">
+                <router-outlet></router-outlet>
+            </section>
+        </div>
+    </div>
+</body>

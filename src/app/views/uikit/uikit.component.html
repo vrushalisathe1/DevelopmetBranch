@@ -1,0 +1,63 @@
+<!-- textbox -->
+<div class="form_input">
+    <label for="username">name</label>
+    <input type="text" pInputText formControlName="Password" placeholder="Password">
+</div>
+
+<!-- textbox with error message -->
+<div class="form_input input_validation">
+    <label for="username">Textbox with error message</label>
+    <input type="text" pInputText formControlName="Password" placeholder="Password">
+    <p class="error_message">Error message goes here</p>
+</div>
+
+<!-- passwrod -->
+<div class="form_input">
+    <label for="username">Password</label>
+    <input type="password" pInputText formControlName="Password" placeholder="Password">
+</div>
+
+<!-- dropdown -->
+<div class="form_input">
+    <label for="username">City</label>
+    <p-dropdown placeholder="Select a City"></p-dropdown>
+</div>
+
+<!-- textarea -->
+<div class="form_input">
+    <label for="username">Message</label>
+    <textarea rows="5" cols="30" pInputTextarea></textarea>
+</div>
+
+<!-- chips -->
+<div class="form_input">
+    <label for="username">Hobbies</label>
+    <p-chips></p-chips>
+</div>
+
+<!-- Toggle button -->
+<div class="form_input">
+    <label for="username">Toggle Button</label>
+    <p-inputSwitch></p-inputSwitch>
+</div>
+
+<!-- radio button -->
+<div class="form_input radio_btn">
+    <p-radioButton name="pizza" value="Cheese" inputId="ingredient1"></p-radioButton>
+    <label for="ingredient1" class="ml-2">Cheese</label>
+</div>
+<div class="form_input radio_btn">
+    <p-radioButton name="pizza" value="Mushroom" inputId="ingredient2"></p-radioButton>
+    <label for="ingredient2" class="ml-2">Mushroom</label>
+</div>
+
+<!-- checkbox button -->
+<div class="form_input checkbox_btn">
+    <p-checkbox formControlName="city" value="New York" inputId="ny"></p-checkbox>
+    <label for="ny">New York</label>
+</div>
+
+<!-- multi select dropdown -->
+<div class="form_input multi_select_drop">
+    <p-multiSelect  placeholder="Select Cities" optionLabel="name" display="chip" [showClear]="true"></p-multiSelect>
+</div>

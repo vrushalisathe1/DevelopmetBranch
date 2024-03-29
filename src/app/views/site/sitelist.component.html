@@ -1,0 +1,123 @@
+
+<div class="right-content">
+  <div class="custom-form">
+    <div class="Internaltitle card-header d-flex justify-content-between align-items-center">
+      <h2 class="inner-heading">{{ 'lblRoleScreen' | translate }}</h2>
+      <p-button styleClass="btn btn-primary btn-externalListPrimary btn-sm" [routerLink]="['/site/add']"
+                label="+ {{'lblAdd' | translate}} {{ 'lblRole' | translate }}">
+      </p-button>
+    </div>
+
+    <div class="user-mangt edit_table mb-0 inner_padding_tab">
+      <div class="bg_body custom-form-heading">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-12 d-flex align-items-center">
+            <div class=" d-flex justify-content-between w-100">
+              <div class="row">
+                <div class="d-inline-block position-relative search-filter d-flex gap-3">
+                  <input id="txtSearch" pInputText placeholder="{{'lblFindRoleName' | translate}}"[(ngModel)]="RoleName" autocomplete="off" maxlength="40" class="search"(input)="onSearchRoleName()">
+                  <p-button label="{{'lblClear' | translate}}" styleClass="btn btn-outline mr-2 ml-0 btn-cancel" (click)="clear();"></p-button>  
+                   
+                </div>
+              </div>
+              <!-- <div class="filterbyrespons ">
+                <div class="d-inline-block mr-2 " ></div>
+                <button type="button"  (click)="exportExcel()" class="p-button-success btn btn-secondary m-2 float-end">{{ 'lblExportToExcel' | translate }}</button>
+                <button type="button"  (click)="exportPdf()"class="p-button-success btn btn-secondary m-2 float-end">{{ 'lblExportToPDF' | translate }}</button> 
+
+
+              </div> -->
+            </div>
+          </div>
+      </div>
+    </div>
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-12">
+          <div class="table-responsive table-layout-fix">
+            <p-table #dt [value]="Role?.RoleList" styleClass="p-datatable-gridlines p-datatable-striped"
+                     paginatorDropdownAppendTo="body" [alwaysShowPaginator]="true" [totalRecords]="Role?.totalCount"
+                     [paginator]="true" [showCurrentPageReport]="true" [rows]="25" [(first)]="first"
+                     [showDropdownPageReport]="true" [rowsPerPageOptions]="[10, 25, 50, 100]"
+                     perPage="{{'lblRolePerPage' | translate}}"
+                     currentPageReportTemplate="{{'lblShowingRole' | translate}}" [lazy]="true"
+                     (onLazyLoad)="loadDetails($event)">
+              <ng-template pTemplate="header">
+                <tr>
+
+                  <th class="col-sm-4" [pSortableColumn]="'NAME'">
+                    {{ 'lblRoleName' | translate }}
+                    <p-sortIcon [field]="'NAME'"></p-sortIcon>
+                  </th>
+                  <th class="col-sm-4" [pSortableColumn]="'NAME'">
+                    {{'lblUserName' | translate}}
+                    <p-sortIcon [field]="'NAME'"></p-sortIcon>
+                  </th>
+                  <th class="col-sm-4" [pSortableColumn]="'ISACTIVE'">
+                    {{ 'lblIsActive' | translate }}
+                    <p-sortIcon [field]="'ISACTIVE'"></p-sortIcon>
+                  </th>
+
+                  <th class="action-cell" class="col-sm-6">{{ 'lblAction' | translate }}</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-role>
+                <tr>
+                  <td>{{ role.name }}</td>
+                  <td>{{role.customerName}}</td>
+                    <td class="status-td">
+                      @if(role.isActive){
+                        <span class="status-span active-status">{{ 'lblActive' | translate }}</span>
+                      }    @else { 
+                        <span class="status-span inactive-status">{{ 'lblInactive' | translate }}</span>
+                      }
+                  </td>
+                  <td class="action external-list-action action-cell d-flex">
+                    <div class="action_image">
+                      <p-button styleClass="btn" [routerLink]="['/role/edit',role.roleid]">
+                        <i class="pi pi-pencil"></i>
+                      </p-button>
+                    </div>
+                    <div class="action_image">
+                      <p-button styleClass="btn "
+                                (click)="showRolePopup(role.roleid);">
+                        <i class="pi pi-trash"></i>
+                      </p-button>
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="3" class="noDatatext">{{ 'lblNodata' | translate }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<p-dialog id="ExternalUserAddModel" [(visible)]="displayRolePopup" [closable]="false" [modal]="true" > 
+  <div class="modal-content">
+      <div class="card mb-0 border-radius-0-custom" role="document">
+          <div class="model_padding">
+              <div class="modal-body">
+                  <div class="row mx-0">
+                      <div class="col-12">
+                          <div class="popup_icon popup_icon_delete">
+                              <img src="../../../assets/img/icons/delete_icon.svg" alt="test">
+                          </div>
+                          <h4 class="modal-title mt-0">{{ "lblDeleteRoleRecord" | translate }}</h4>
+                          <p>{{ "lblAreyousureyouwanttodelete" | translate }}</p>
+                          <p-button styleClass="btn btn-delete m-2" label="{{ 'Delete' | translate }}" (click)="deleteRole();"></p-button>
+                          <p-button styleClass="btn btn-outline m-2" label="{{ 'lblCancel' | translate }}" (click)="displayRolePopup=false"></p-button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</p-dialog>
